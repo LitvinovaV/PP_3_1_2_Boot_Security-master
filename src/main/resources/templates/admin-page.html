@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title> </title>
+</head>
+<body>
+<h2>All users</h2>
+<div>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Age</th>
+      <th>Username</th>
+      <th>Role</th>
+    </tr>
+
+    <tr th:each="user : ${users}">
+      <td th:text="${user.getName()}">Name</td>
+      <td th:text="${user.getSurname()}">Surname</td>
+      <td th:text="${user.getAge()}">Age</td>
+      <td th:text="${user.getUsername()}">Username</td>
+      <td th:text="${user.getRoles()}">Username</td>
+      <td>
+        <form th:action="@{/admin/{id}/edit(id=${user.id})}" th:object="${user}">
+          <button type="submit">Edit user</button>
+        </form>
+      </td>
+      <td>
+        <form th:action="@{/admin/deleteUser(id=${user.id})}" th:object="${user}">
+          <input type="hidden" name="id" th:value="${user.id}">
+          <button type="submit">Delete user</button>
+        </form>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <form th:action="@{/admin/addNew}">
+    <button type="submit">Add new user</button>
+  </form>
+  <br>
+  <form th:action="@{/logout}">
+    <button type="submit">Logout</button>
+  </form>
+</div>
+
+</body>
+</html>

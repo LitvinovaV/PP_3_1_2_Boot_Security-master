@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign in</title>
+</head>
+<body>
+<h2></h2>
+<div>
+  <form th:action="@{/sign_in}" th:object="${user}" method="post">
+    <fieldset>
+      <legend>Enter user info</legend>
+      <p>
+        <label th:for="name">Name</label>
+        <input type="text" name="name" th:id="name">
+        <br/>
+      </p>
+      <p>
+        <label th:for="surname">Surname</label>
+        <input type="text" name="surname" th:id="surname">
+        <br/>
+      </p>
+      <p>
+        <label th:for="age">Age</label>
+        <input type="text" name="age" th:id="age">
+        <br/>
+      </p>
+      <p>
+        <label th:for="username">Username</label>
+        <input type="text" name="username" th:id="username">
+        <br/>
+      </p>
+      <p>
+        <label th:for="password">Password</label>
+        <input type="password" name="password" th:id="password">
+        <br/>
+      </p>
+    </fieldset>
+    <br>
+    <button type="submit">Save</button>
+  </form>
+  <br>
+  <form th:action="@{/}">
+    <button type="submit">Return</button>
+  </form>
+</div>
+</body>
+</html>
