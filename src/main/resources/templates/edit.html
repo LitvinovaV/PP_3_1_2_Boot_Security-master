@@ -41,8 +41,8 @@
           </option>
         </select>
         <br/>
-
-        <input type="hidden" name="password" th:id="password" th:value="${user.getPassword()}">
+        <label th:for="password">Password</label>
+        <input type="password" name="password" th:id="password" th:value="${user.getPassword()}">
       </p>
     </fieldset>
     <br>

@@ -58,9 +58,9 @@ public class AdminController {
     }
 
     @PatchMapping(value = "/{id}")
-    public String updateUser(@ModelAttribute("user") User user, Model model) {
+    public String updateUser(@ModelAttribute("user") User user, @PathVariable("id") Long id, Model model) {
         model.addAttribute("roles", roleService.getRoles());
-        userService.updateUser(user);
+        userService.updateUser(user, id);
         return "redirect:/admin";
     }
 }
